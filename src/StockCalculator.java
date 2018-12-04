@@ -1,44 +1,42 @@
 import java.math.BigDecimal;
-import javax.swing.JTextField;
 
 public class StocksCalculatorMethods {
-
-	private static double stockMolarity = textToDouble(btnStocksCalculator.arrayOfJTextFields[1]);
+	private static double stockMolarity = textToDouble(1);
 	private static double result;
 	
-	private static double textToDouble(JTextField textField) {
-		return Double.parseDouble(textField.getText());
+	private static double textToDouble(int number) {
+		return Double.parseDouble(btnStocksCalculator.arrayOfJTextFields[number].getText());
 		}
 	
 	private static BigDecimal bd(double result) {
 		return new BigDecimal(result);
 		}
 	
+	@SuppressWarnings("deprecation")
 	private static String result() {
 		return bd(result).setScale(1,BigDecimal.ROUND_HALF_EVEN).toPlainString();
 		}
 	
 /**Button 1*/
 		public static String waterQuantityString1() {
-			result = 1000 * textToDouble(btnStocksCalculator.textField2) / stockMolarity;
+			result = 1000 * textToDouble(2) / stockMolarity;
 			return result();
 			}
 
 /**Button 2*/
 		public static String waterQuantityString2() {
-			result = 10 * textToDouble(btnStocksCalculator.textField_3) / stockMolarity - 10;
+			result = 10 * textToDouble(3) / stockMolarity - 10;
 			return result();
 			}
 		
 /**Button 3*/
 		public static String primerConcentrationString() {
-			result = textToDouble(btnStocksCalculator.textField_5) * 0.02 * 
-					textToDouble(btnStocksCalculator.textField_4);
+			result = textToDouble(5) * 0.02 * textToDouble(4);
 			return result();
 			}
 		public static String molarConcentrationString() {
 			result = Double.parseDouble(StocksCalculatorMethods.primerConcentrationString()) / 
-					330 * 1000000 / textToDouble(btnStocksCalculator.textField_6);
+					330 * 1000000 / textToDouble(6);
 			return result();
 			}
 		public static String waterQuantityString3() {
@@ -73,8 +71,8 @@ public class StocksCalculatorMethods {
 				long countCharC = textField12String.toUpperCase().chars().filter(ch -> ch =='C').count();
 				
 			/**Amount in nmol*/			
-				result = 100 * textToDouble(btnStocksCalculator.textField7)/
-						 (countCharA * 1.54 + countCharT * 0.92 + countCharC * 0.75 + countCharG * 1.17);
+				result = 100 * textToDouble(7) / 
+						(countCharA * 1.54 + countCharT * 0.92 + countCharC * 0.75 + countCharG * 1.17);
 				return result();
 			}
 			
